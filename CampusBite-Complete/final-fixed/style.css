@@ -1,0 +1,61 @@
+/* CampusBite mobile-first base styles */
+:root{--green:#163b32;--green2:#245548;--orange:#e28a12;--ink:#263238;--muted:#64748b;--page:#f8fafc;--line:#e5e7eb}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;font-size:1rem;line-height:1.6;color:var(--ink);background:var(--page)}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+.container{width:90%;max-width:1200px;margin-inline:auto}
+.skip-link{position:absolute;left:-9999px;top:1rem;background:white;padding:.75rem;z-index:10}
+.skip-link:focus{left:1rem}
+.site-header{background:white;padding:1rem 0}
+.header-inner{display:flex;flex-direction:column;gap:.2rem}
+.logo{font-size:1.8rem;font-weight:800;color:var(--green);letter-spacing:-.05em}
+.logo span{color:var(--orange)}
+.tagline{color:var(--muted);font-size:.9rem}
+.main-nav{background:var(--green)}
+.nav-links{display:flex;flex-direction:column}
+.nav-links a{display:block;color:white;text-align:center;padding:.9rem 1rem;min-height:48px;font-weight:700;border-bottom:1px solid #ffffff25}
+.nav-links a:hover,.nav-links a:focus-visible{background:var(--green2)}
+.banner{margin-top:1.5rem;background:#fff4df;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr}
+.banner-copy{padding:1.7rem}
+.eyebrow{color:#a45f05;font-size:.78rem;font-weight:800;letter-spacing:.12em;margin-bottom:.5rem}
+.banner h1{font-size:clamp(2rem,8vw,3.5rem);line-height:1.1;color:var(--green);margin-bottom:.8rem}
+.banner-copy p:not(.eyebrow){margin-bottom:1.2rem}
+.button{display:inline-block;background:var(--orange);color:white;padding:.75rem 1.1rem;border-radius:8px;font-weight:700}
+.banner img{width:100%;height:auto;object-fit:cover}
+.menu-section{padding-block:3rem}
+.section-heading{margin-bottom:1.25rem}
+.section-heading h2{font-size:clamp(1.7rem,5vw,2.4rem);color:var(--green)}
+.section-heading>p:last-child{color:var(--muted)}
+.menu-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+.menu-card{min-width:0;background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 3px 12px #0000000b}
+.menu-card img{width:100%;height:190px;object-fit:cover}
+.card-content{padding:1rem}
+.card-content h3{font-size:1.2rem;color:var(--green)}
+.card-content p{font-size:.9rem;color:var(--muted);margin:.35rem 0 .6rem}
+.card-content strong{font-size:1.15rem;color:#a45f05}
+.site-footer{background:var(--green);color:white;text-align:center;padding:2rem 1rem}
+.site-footer p{color:#d1e2dc;font-size:.9rem;margin-top:.35rem}
+
+/* Q2 content-driven breakpoints:
+   600px: content has enough room for horizontal navigation and a split hero.
+   900px: desktop spacing and card proportions become comfortable.
+   These are layout-driven choices, not device-brand breakpoints. */
+@media (min-width:600px){
+  .header-inner{flex-direction:row;justify-content:space-between;align-items:center}
+  .nav-links{flex-direction:row;justify-content:center}
+  .nav-links a{border:0;padding-inline:1.25rem}
+  .banner{grid-template-columns:1fr 1fr}
+  .banner-copy{padding:2.5rem}
+  .banner img{height:100%;min-height:300px}
+  .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:900px){
+  .banner{margin-top:2rem}
+  .banner-copy{padding:3.5rem}
+  .banner img{min-height:370px}
+  .menu-section{padding-block:4rem}
+  .menu-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+  .menu-card img{height:210px}
+}
